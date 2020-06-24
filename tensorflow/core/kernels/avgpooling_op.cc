@@ -78,6 +78,11 @@ class AvgPoolingOp : public UnaryOp<T> {
   }
 
   void Compute(OpKernelContext* context) override {
+
+    // ######################################################################
+    std::cout << "Called Compute 1";
+    // ######################################################################
+
     const Tensor& tensor_in = context->input(0);
     PoolParameters params{context,  ksize_,       stride_,
                           padding_, data_format_, tensor_in.shape()};
@@ -143,6 +148,11 @@ class AvgPoolingOp<GPUDevice, T> : public UnaryOp<T> {
   }
 
   void Compute(OpKernelContext* context) override {
+
+    // ######################################################################
+    std::cout << "Called Compute 2";
+    // ######################################################################
+
     const Tensor& tensor_in = context->input(0);
     PoolParameters params{context,  ksize_,       stride_,
                           padding_, data_format_, tensor_in.shape()};
@@ -251,6 +261,11 @@ class AvgPoolingGradOp : public OpKernel {
   }
 
   void Compute(OpKernelContext* context) override {
+
+    // ######################################################################
+    std::cout << "Called Compute 3";
+    // ######################################################################
+
     const Tensor& tensor_in_shape = context->input(0);
     const Tensor& out_backprop = context->input(1);
     // For avgpooling, tensor_in_shape should have 1 dimension, and 4 elements.
@@ -410,6 +425,11 @@ class AvgPoolingGradOp<GPUDevice, T> : public OpKernel {
   }
 
   void Compute(OpKernelContext* context) override {
+
+    // ######################################################################
+    std::cout << "Called Compute 4";
+    // ######################################################################
+
     const Tensor& tensor_in_shape = context->input(0);
     const Tensor& out_backprop = context->input(1);
     // For avgpooling, tensor_in_shape should have 1 dimension, and 4 elements.
@@ -490,6 +510,11 @@ class AvgPoolingGradOpCustomGPUKernel : public OpKernel {
   }
 
   void Compute(OpKernelContext* context) override {
+
+    // ######################################################################
+    std::cout << "Called Compute 5";
+    // ######################################################################
+
     const Tensor& tensor_in_shape = context->input(0);
     const Tensor& out_backprop = context->input(1);
     // For avgpooling, tensor_in_shape should have 1 dimension, and 4 elements.
