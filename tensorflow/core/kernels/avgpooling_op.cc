@@ -80,7 +80,7 @@ class AvgPoolingOp : public UnaryOp<T> {
   void Compute(OpKernelContext* context) override {
 
     // ######################################################################
-    std::cout << "Called Compute 1";
+    std::cout << "Called Compute 1 \n";
     // ######################################################################
 
     const Tensor& tensor_in = context->input(0);
@@ -150,7 +150,7 @@ class AvgPoolingOp<GPUDevice, T> : public UnaryOp<T> {
   void Compute(OpKernelContext* context) override {
 
     // ######################################################################
-    std::cout << "Called Compute 2";
+    std::cout << "Called Compute 2 \n";
     // ######################################################################
 
     const Tensor& tensor_in = context->input(0);
@@ -263,7 +263,7 @@ class AvgPoolingGradOp : public OpKernel {
   void Compute(OpKernelContext* context) override {
 
     // ######################################################################
-    std::cout << "Called Compute 3";
+    std::cout << "Called Compute 3 \n";
     // ######################################################################
 
     const Tensor& tensor_in_shape = context->input(0);
@@ -427,7 +427,7 @@ class AvgPoolingGradOp<GPUDevice, T> : public OpKernel {
   void Compute(OpKernelContext* context) override {
 
     // ######################################################################
-    std::cout << "Called Compute 4";
+    std::cout << "Called Compute 4 \n";
     // ######################################################################
 
     const Tensor& tensor_in_shape = context->input(0);
@@ -512,7 +512,7 @@ class AvgPoolingGradOpCustomGPUKernel : public OpKernel {
   void Compute(OpKernelContext* context) override {
 
     // ######################################################################
-    std::cout << "Called Compute 5";
+    std::cout << "Called Compute 5 \n";
     // ######################################################################
 
     const Tensor& tensor_in_shape = context->input(0);
