@@ -597,6 +597,20 @@ void SpatialAvgPool(OpKernelContext* context, Tensor* output,
     }
 
     DCHECK_GT(out_count.minCoeff(), T(0));
+    
+    // Debug
+    std::cout << out_count(0);
+
+    // #########################################################################
+    // Rounding to the nearest power of two
+    // #########################################################################
+    for (int i = 0; i < sizeof(out_count.array()); i++) {
+        out_count(i) = pow(2, round(log2(out_count.array()[i])));
+    }
+
+    // Debug
+    std::cout << out_count(0);
+
     out_mat.array().rowwise() /= out_count.transpose().array();
   };
 
