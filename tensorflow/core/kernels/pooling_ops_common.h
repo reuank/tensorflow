@@ -605,7 +605,7 @@ void SpatialAvgPool(OpKernelContext* context, Tensor* output,
     // Rounding to the nearest power of two
     // #########################################################################
     for (int i = 0; i < sizeof(out_count.array()); i++) {
-        out_count(i) = pow(2, round(log(out_count.array()[i])));
+        out_count(i) = pow_impl(2, round_impl(log(out_count.array()[i]) / log(2)));
     }
 
     // Debug
